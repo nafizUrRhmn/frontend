@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-    path: 'form-example',
-    loadChildren: () => import('./form-example/form-example.module').then(m => m.FormExampleModule)
-  },
+  // {
+  //   path: 'form-example',
+  //   loadChildren: () => import('./form-example/form-example.module').then(m => m.FormExampleModule)
+  // },
   {
     path: '',
     redirectTo: '',

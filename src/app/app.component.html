@@ -3,25 +3,24 @@
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
       <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
         <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <span class="fs-5 d-none d-sm-inline">Menu</span>
+          <span class="fs-5 d-none d-sm-inline">Core Banking Application</span>
         </a>
         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
           <div *ngFor="let menu of menus">
             <li>
-              <span *ngIf="menu.parentId === null; else submenu">
-                <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                <i [class]="menu.iconClass"></i> <span class="ms-1 d-none d-sm-inline">{{menu.name}}</span> </a>
-              </span>
-              <ng-template #submenu>
-                <ul class="collapse show nav flex-column ms-1" data-bs-parent="#menu">
-                  <li class="w-100 ps-5">
-                    <a href="#" class="nav-link px-0" (click)="onAdd(menu)"> <span class="d-none d-sm-inline">{{menu.name}}</span></a>
+              <a [attr.href]="'#'+menu.id" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">{{menu.name}}</span> </a>
+              <div *ngFor="let submenu of menu.children">
+                <ul class="collapse show nav flex-column ms-1" [attr.id]="menu.id" data-bs-parent="#menu">
+                  <li class="w-100">
+                    <a href="#" class="nav-link px-0" (click)="onAdd(submenu)"> {{submenu.name}}</a>
                   </li>
                 </ul>
-              </ng-template>
+              </div>
+
             </li>
           </div>
-        </ul>
+          </ul>
         <hr>
         <div class="dropdown pb-4">
           <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -41,7 +40,30 @@
       </div>
     </div>
     <div class="col py-3">
-      <router-outlet></router-outlet>
+      <mat-tab-group>
+        <ng-container *ngFor="let tab of tabs; let index = index">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <div class="col">{{tab.name}}</div>
+              <button class="btn-close" aria-label="Close" (click)="closeTab($event, index)">
+              </button>
+            </ng-template>
+
+            <span [ngSwitch]="tab.id">
+      <div *ngSwitchCase="0" style="height: calc(100% - 30px);">
+        Case 2
+      </div>
+      <div *ngSwitchCase="1" style="height: calc(100% - 8px);">
+        Case 1
+      </div>
+      <div *ngSwitchDefault>
+        Default
+      </div>
+    </span>
+
+          </mat-tab>
+        </ng-container>
+      </mat-tab-group>
     </div>
   </div>
 </div>
