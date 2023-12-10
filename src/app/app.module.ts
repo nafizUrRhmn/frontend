@@ -12,12 +12,14 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
 import { IdentityFormComponent } from './identity-form/identity-form.component';
 import { LocationFormComponent } from './location-form/location-form.component';
+import { OfficeInfoComponent } from './office-info/office-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IdentityFormComponent,
-    LocationFormComponent
+    LocationFormComponent,
+    OfficeInfoComponent
   ],
   imports: [
     BrowserModule,
