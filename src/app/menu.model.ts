@@ -1,3 +1,5 @@
+import {Component} from "@angular/core";
+
 export interface Menu{
   id: number;
   name: string;
@@ -6,4 +8,5 @@ export interface Menu{
   parentId: number | null;
   children: null | Menu[];
   sequence: number;
+  component: any | null;
 }

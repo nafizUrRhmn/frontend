@@ -4,6 +4,7 @@ import {Menu} from "./menu.model";
 import {Tab} from "./tab.model";
 import {MenuService} from "./menu.service";
 import {MatTab, MatTabGroup} from "@angular/material/tabs";
+import {IdentityFormComponent} from "./identity-form/identity-form.component";
 
 @Component({
   selector: 'app-root',
@@ -40,7 +41,8 @@ export class AppComponent implements OnInit {
     const tab: Tab = {
       id: value.id,
       name: value.name,
-      header: value.header
+      header: value.header,
+      component: value.component
     }
     this.tabs.push(tab);
   }

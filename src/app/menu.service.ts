@@ -1,5 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Menu} from "./menu.model";
+import {LocationFormComponent} from "./location-form/location-form.component";
+import {IdentityFormComponent} from "./identity-form/identity-form.component";
 
 @Injectable({providedIn: 'root'})
 export class MenuService{
@@ -12,43 +14,29 @@ export class MenuService{
       header: 'Dashboard Header',
       parentId: null,
       sequence: 1,
+      component: null,
       children: [{
         id: 2,
-        name: 'Item 1',
+        name: 'Location Form',
         iconClass: null,
-        header: 'Item 1 Header',
+        header: 'Location Form Header',
         parentId: 1,
         children: null,
-        sequence: 2
+        sequence: 2,
+        component: LocationFormComponent
       },
         {
           id: 3,
-          name: 'Item 2',
+          name: 'Identity Form',
           iconClass: null,
-          header: 'Item 1 Header',
+          header: 'Identity Form(Header)',
           parentId: 1,
           children: null,
-          sequence: 3
-        },
-        {
-          id: 4,
-          name: 'Item 3',
-          iconClass: null,
-          header: 'Item 3 Header',
-          parentId: 1,
-          children: null,
-          sequence: 4
-        },
-        {
-          id: 5,
-          name: 'Item 4',
-          iconClass: null,
-          header: 'Item 4 Header',
-          parentId: 1,
-          children: null,
-          sequence: 5
-        }]
-    }]
+          sequence: 3,
+          component: IdentityFormComponent
+        }
+      ]
+    }];
     return menus;
   }
 }

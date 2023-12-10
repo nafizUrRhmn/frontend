@@ -10,10 +10,14 @@ import {CommonModule} from "@angular/common";
 import {MatTabsModule} from "@angular/material/tabs";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatIconModule} from "@angular/material/icon";
+import { IdentityFormComponent } from './identity-form/identity-form.component';
+import { LocationFormComponent } from './location-form/location-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    IdentityFormComponent,
+    LocationFormComponent
   ],
   imports: [
     BrowserModule,
